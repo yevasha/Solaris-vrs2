@@ -1,0 +1,226 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #18004c;
+    color: #fff;
+    position: relative; /* Gör body till ett positioneringskontext för absolut positionering */
+}
+
+.planets-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 450px; /* Avståndet från toppen till planeterna */
+}
+
+.planet {
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 10px; 
+}
+
+
+#solen {
+    position: absolute;
+    top: -230px; /* Justera solens position relativt planets-container */
+    left: -300px; /* Justera solens position relativt planets-container */
+    width: 350px;
+    height: 500px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    background: linear-gradient(to left, #ffcc00, transparent);
+}
+
+#merkurius {
+    width: 15px;
+    height: 15px;
+    background-color: #a9a9a9;
+}
+
+#venus {
+    width: 30px;
+    height: 30px;
+    background-color: #e58c2a;
+}
+
+#jorden {
+    width: 32px;
+    height: 32px;
+    background-color: #0077cc;
+}
+
+#mars {
+    width: 15px;
+    height: 15px;
+    background-color: #ff5733;
+}
+
+#jupiter {
+    top: -70px;
+    width: 200px;
+    height: 200px;
+    background-color: #d6b995;
+}
+
+#saturnus {
+    position: relative;
+    top: -60px;
+    width: 150px;
+    height: 150px;
+    background-color: #cdac81;
+    border-radius: 50%; /* gör det till en cirkel */
+
+    /* Lägg till cirkel runt planeten */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        box-sizing: border-box;
+    }
+}
+
+
+#uranus {
+    width: 55px;
+    height: 55px;
+    background-color: #a0e6ff;
+}
+
+#neptunus {
+    width: 50px;
+    height: 50px;
+    background-color: #3b5998;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2; /* Se till att det är över solen och planeterna */
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background: #020049;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* to hide overflowing stars */
+    z-index: 1; /* Ensure the stars are behind the content */
+
+    /* Create stars */
+    ::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(white 1px, transparent 1px),
+                          radial-gradient(white 1px, transparent 1px);
+        background-position: 0 0, 25px 25px;
+        background-size: 50px 50px;
+        pointer-events: none; /* Allow interactions with underlying content */
+    }
+}
+
+
+#planet-name {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#planet-info {
+    color: #555;
+    
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.solarsystem-text {
+    position: absolute;
+    top: -400px;
+    right: 20px;
+    color: #ffffff;
+    font-size: 120px;
+    font-weight: bold;
+}
+
+.solaris-text {
+    position: absolute;
+    top: -250px;
+    right: 20px;
+    color: #ffcc00;
+    font-size: 100px;
+    font-family: fantasy;
+}
+
+#latin {
+    color: #ffcc00;
+    font-size: 16px;
+    font-style: fangsong;
+}
+
+
+#omkrets {
+    font-size: 16px;
+    font-style: italic;
+    position: absolute;
+    left: 45px;
+    background: #020049;
+    
+}
+
+
+#max {
+    font-size: 16px;
+    font-style: italic;
+    position: absolute;
+    top: 255px;
+    background: #020049;
+    
+}
+
+
+#km {
+    font-size: 16px;
+    font-style: italic;
+    position: absolute;
+    right: 58px;
+    background: #020049;
+    
+}
+
+
+#min {
+    font-size: 16px;
+    font-style: italic;
+    position: absolute;
+    top: 255px;
+    right: 20px;
+    background: #020049;
+    
+}
+
+
